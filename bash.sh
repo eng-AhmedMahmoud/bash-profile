@@ -3,15 +3,36 @@
 alias git="hub"
 
 # Git Aliases
-alias st="git status"
+
+# remove local git repo
+alias remove="rm -rf .git"
+
+# alias amend="git commit --amend -m --no-edit"
+
+# restore from index area to working directory
+alias restore= "git restore --staged"
+
+#reset to previous commit
+alias reset="git reset --hard HEAD~1"
+
+alias st="git status -s"
 alias admit="git add . && git commit -m"
-alias goto="git checkout"
+
+# log all commits
+alias log="git log --oneline"
+
+# branch and checkout
+alias goto="git checkout -b || git checkout"
+
 alias rm="git rm"
 alias init="git init"
 alias br="git branch"
 alias clone="git clone"
 alias ph="git push origin main"
 alias charlez="git push origin Charlez-Solutions"
+
+#Generate new SSH key
+alias ssh="ssh-keygen -t ed25519 -C \"ahmeddahabmohamed@gmail.com\" && eval \"$(ssh-agent -s)\" && ssh-add ~/.ssh/id_ed25519 && cat ~/.ssh/id_ed25519.pub"
 
 # access user name ,eamil and password
 alias setConfig='function _gitconfig() { git config --global user.name "$1"; git config --global user.email "$2";}; _gitconfig'
