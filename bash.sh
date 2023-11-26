@@ -1,7 +1,7 @@
 # Hub Aliases
 #https://hub.github.com/#developer
 alias git="hub"
-
+alias format="npx prettier --write ."
 # Git Aliases
 
 # remove local git repo
@@ -117,10 +117,18 @@ alias getConfig='function _gitconfigprint() { git config --global user.name; git
 #* fromeworks
 #React 
 alias React='function create-react-app() { npx create-react-app "$1" && cd "$1" && npm start; }; create-react-app'
+#React with typescript
+alias React-ts='function create-react-app() { npx create-react-app "$1" --template typescript && cd "$1" && npm start; }; create-react-app'
 #Angular
 alias Angular='function create-angular-app() { npx @angular/cli new "$1" && cd "$1" && ng serve; }; create-angular-app'
 #Vue
 alias Vue='function create-vue-app() { npx @vue/cli create "$1" && cd "$1" && npm run serve; }; create-vue-app'
+#Next
+alias Next='function create-next-app() { npx create-next-app "$1" && cd "$1" && npm run dev; }; create-next-app'
+#Svelte
+alias Svelte='function create-svelte-app() { npx degit sveltejs/template "$1" && cd "$1" && npm run dev; }; create-svelte-app'
+#Svelte with typescript
+alias Svelte-ts='function create-svelte-app() { npx degit sveltejs/template "$1" && cd "$1" && npm run dev; }; create-svelte-app'
 
 #* svn
 #clone subsidary directory
@@ -148,34 +156,23 @@ alias bootstrap-font='npm install bootstrap @fortawesome/fontawesome-free --save
 
 #* tailwind
 # tailwind
-alias tailwind='npm install tailwindcss --save-dev'
-# tailwind all
-alias tailwind-all='npm install tailwindcss postcss postcss-cli autoprefixer --save-dev'
-# tailwind config
-alias tailwind-config='npx tailwindcss init -p'
-# tailwind build
-alias tailwind-build='npx tailwindcss build -o ./src/styles/tailwind.css'
-# tailwind watch
-alias tailwind-watch='npx tailwindcss build -o ./src/styles/tailwind.css -w'
+alias tailwind="npm install tailwindcss --save-dev && npx tailwindcss init && echo -e \"dont forget to replace content with \n content: [\"./src/**/*.{html,js}\"], >>in moduls.exports \n also add these to input.css in src folder \n @tailwind base; \n
+@tailwind components; \n
+@tailwind utilities;\""
+
+# watch tailwind
+alias tailwind-watch='npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch'
 # tailwind with font awesome
-alias tailwind-font='npm install @fortawesome/fontawesome-free --save-dev && npm install tailwindcss postcss postcss-cli autoprefixer --save-dev && npx tailwindcss init -p && npx tailwindcss build -o ./src/styles/tailwind.css -w'
+alias tailwind-font='npm install @fortawesome/fontawesome-free --save-dev && npm install tailwindcss --save-dev && npx tailwindcss init'
 
 #* material ui
-# material ui
-alias material='npm install @material-ui/core --save-dev'
+# material ui all
+alias mui='npm install @material-ui/core @material-ui/icons @material-ui/lab @material-ui/styles @material-ui/system @material-ui/utils @material-ui/pickers --save-dev'
 # material ui icons
 alias material-icons='npm install @material-ui/icons --save-dev'
-# material ui lab
-alias material-lab='npm install @material-ui/lab --save-dev'
-# material ui styles
-alias material-styles='npm install @material-ui/styles --save-dev'
-# material ui system
-alias material-system='npm install @material-ui/system --save-dev'
-# material ui utils
-alias material-utils='npm install @material-ui/utils --save-dev'
-# material ui pickers
-alias material-pickers='npm install @material-ui/pickers --save-dev'
-# material ui all
-alias material-all='npm install @material-ui/core @material-ui/icons @material-ui/lab @material-ui/styles @material-ui/system @material-ui/utils @material-ui/pickers --save-dev'
+ 
+#* SCSS
+# Vue sass
+alias vue-sass='npm install -d sass-loader node-sass'
 
 #& end region -----------------------------
