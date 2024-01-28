@@ -2,6 +2,7 @@
 #https://hub.github.com/#developer
 alias git="hub"
 alias format="npx prettier --write ."
+alias ls="ls -lsah"
 # Git Aliases
 
 # remove local git repo
